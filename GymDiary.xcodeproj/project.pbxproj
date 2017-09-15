@@ -38,6 +38,11 @@
 		C4F1B7E31F69802B00670AC6 /* PreviousWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F1B7E21F69802B00670AC6 /* PreviousWorkoutView.swift */; };
 		C4FBB6FE1F6C0AAE001239EE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBB6FD1F6C0AAE001239EE /* LoginViewController.swift */; };
 		C4FBB7001F6C1C20001239EE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBB6FF1F6C1C20001239EE /* WelcomeViewController.swift */; };
+		C4FBB7031F6C35D0001239EE /* ChosenMuscleGroupHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBB7021F6C35D0001239EE /* ChosenMuscleGroupHeader.swift */; };
+		C4FBB7051F6C3B95001239EE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBB7041F6C3B95001239EE /* TabBarController.swift */; };
+		C4FBB7071F6C3C52001239EE /* StockWorkoutPlansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBB7061F6C3C52001239EE /* StockWorkoutPlansViewController.swift */; };
+		C4FBB70A1F6C41A6001239EE /* StockPlanHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBB7091F6C41A6001239EE /* StockPlanHeader.swift */; };
+		C4FBB70C1F6C435A001239EE /* PlanViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBB70B1F6C435A001239EE /* PlanViews.swift */; };
 		F03C3EB91BC4575890442C53 /* Pods_GymDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7CBF3AD6ACFAEA69639F6C /* Pods_GymDiary.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +102,11 @@
 		C4F1B7E21F69802B00670AC6 /* PreviousWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousWorkoutView.swift; sourceTree = "<group>"; };
 		C4FBB6FD1F6C0AAE001239EE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C4FBB6FF1F6C1C20001239EE /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		C4FBB7021F6C35D0001239EE /* ChosenMuscleGroupHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenMuscleGroupHeader.swift; sourceTree = "<group>"; };
+		C4FBB7041F6C3B95001239EE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C4FBB7061F6C3C52001239EE /* StockWorkoutPlansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockWorkoutPlansViewController.swift; sourceTree = "<group>"; };
+		C4FBB7091F6C41A6001239EE /* StockPlanHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPlanHeader.swift; sourceTree = "<group>"; };
+		C4FBB70B1F6C435A001239EE /* PlanViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViews.swift; sourceTree = "<group>"; };
 		F37BCD266375E84BD759AFF7 /* Pods-GymDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GymDiary/Pods-GymDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		FC7CBF3AD6ACFAEA69639F6C /* Pods_GymDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -190,9 +200,7 @@
 		C4F1B7A41F69411800670AC6 /* GymDiary */ = {
 			isa = PBXGroup;
 			children = (
-				C4CF93CB1F6BF06D00D1FF5E /* GoogleService-Info.plist */,
-				C4F1B7D91F69419700670AC6 /* Extensions.swift */,
-				C4F1B7DF1F6948F800670AC6 /* CustomImageView.swift */,
+				C4FBB7011F6C33EA001239EE /* Utils */,
 				C4F1B7D81F69414500670AC6 /* Model */,
 				C4F1B7D71F69414100670AC6 /* View */,
 				C4F1B7D61F69413700670AC6 /* Controller */,
@@ -200,7 +208,6 @@
 				C4F1B7B11F69411800670AC6 /* LaunchScreen.storyboard */,
 				C4F1B7B41F69411800670AC6 /* Info.plist */,
 				C4F1B7AC1F69411800670AC6 /* GymDiary.xcdatamodeld */,
-				C45F09551F6BF1F000A24060 /* DataService.swift */,
 			);
 			path = GymDiary;
 			sourceTree = "<group>";
@@ -234,6 +241,8 @@
 				C45F09591F6BF58700A24060 /* RegistrationViewController.swift */,
 				C4FBB6FD1F6C0AAE001239EE /* LoginViewController.swift */,
 				C4FBB6FF1F6C1C20001239EE /* WelcomeViewController.swift */,
+				C4FBB7041F6C3B95001239EE /* TabBarController.swift */,
+				C4FBB7061F6C3C52001239EE /* StockWorkoutPlansViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -241,12 +250,14 @@
 		C4F1B7D71F69414100670AC6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C4FBB7081F6C4193001239EE /* StockPlanViews */,
 				C46FCDBF1F6AB6D100612E58 /* CreateWorkoutCells */,
 				C46341F91F6AA7A10037E4A5 /* CreateWorkoutHeaderViews */,
 				C4F1B7E11F697EC400670AC6 /* HomeView */,
 				C463D83A1F6AEF01006F5CCC /* ChooseExerciseHeaderCell.swift */,
 				C463D83C1F6AF198006F5CCC /* MuscleGroupCell.swift */,
 				C463D83E1F6AFD95006F5CCC /* ExercisesChosenByUserCell.swift */,
+				C4FBB7021F6C35D0001239EE /* ChosenMuscleGroupHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,6 +278,26 @@
 				C4F1B7E21F69802B00670AC6 /* PreviousWorkoutView.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		C4FBB7011F6C33EA001239EE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C45F09551F6BF1F000A24060 /* DataService.swift */,
+				C4CF93CB1F6BF06D00D1FF5E /* GoogleService-Info.plist */,
+				C4F1B7D91F69419700670AC6 /* Extensions.swift */,
+				C4F1B7DF1F6948F800670AC6 /* CustomImageView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C4FBB7081F6C4193001239EE /* StockPlanViews */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBB7091F6C41A6001239EE /* StockPlanHeader.swift */,
+				C4FBB70B1F6C435A001239EE /* PlanViews.swift */,
+			);
+			path = StockPlanViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -459,6 +490,7 @@
 				C4F1B7DE1F69485E00670AC6 /* HomeHeaderCell.swift in Sources */,
 				C4F1B7A61F69411800670AC6 /* AppDelegate.swift in Sources */,
 				C4F1B7E01F6948F800670AC6 /* CustomImageView.swift in Sources */,
+				C4FBB7031F6C35D0001239EE /* ChosenMuscleGroupHeader.swift in Sources */,
 				C45F09561F6BF1F000A24060 /* DataService.swift in Sources */,
 				C463D8411F6B0549006F5CCC /* ChooseExerciseViewController.swift in Sources */,
 				C46FCDBE1F6AB48800612E58 /* ExerciseCellHeader.swift in Sources */,
@@ -466,7 +498,9 @@
 				C463D8431F6B0841006F5CCC /* ChoseAnExerciseHeader.swift in Sources */,
 				C46FCDC11F6AB6E300612E58 /* AddColorTagToWorkoutCell.swift in Sources */,
 				C464CC471F6A9CE000E952CE /* CreateWorkoutViewController.swift in Sources */,
+				C4FBB70C1F6C435A001239EE /* PlanViews.swift in Sources */,
 				C463D83F1F6AFD95006F5CCC /* ExercisesChosenByUserCell.swift in Sources */,
+				C4FBB70A1F6C41A6001239EE /* StockPlanHeader.swift in Sources */,
 				C4FBB6FE1F6C0AAE001239EE /* LoginViewController.swift in Sources */,
 				C46341FB1F6AA7CB0037E4A5 /* AddWorkoutView.swift in Sources */,
 				C46FCDC71F6ACC3800612E58 /* AddExerciseViewController.swift in Sources */,
@@ -477,7 +511,9 @@
 				C45F095A1F6BF58700A24060 /* RegistrationViewController.swift in Sources */,
 				C4F1B7DC1F69428100670AC6 /* User.swift in Sources */,
 				C463D83D1F6AF198006F5CCC /* MuscleGroupCell.swift in Sources */,
+				C4FBB7071F6C3C52001239EE /* StockWorkoutPlansViewController.swift in Sources */,
 				C4F1B7DA1F69419800670AC6 /* Extensions.swift in Sources */,
+				C4FBB7051F6C3B95001239EE /* TabBarController.swift in Sources */,
 				C4F1B7E31F69802B00670AC6 /* PreviousWorkoutView.swift in Sources */,
 				C463D83B1F6AEF01006F5CCC /* ChooseExerciseHeaderCell.swift in Sources */,
 			);

@@ -28,9 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       application.statusBarStyle = .lightContent
     } else {
       window = UIWindow()
-      let homeVC = HomeViewController()
-      let navigationController = UINavigationController(rootViewController: homeVC)
-      window?.rootViewController = navigationController
+      let tabBarVC = TabBarController()
+      window?.rootViewController = tabBarVC
       application.statusBarStyle = .lightContent
       window?.makeKeyAndVisible()
     }

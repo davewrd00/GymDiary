@@ -21,11 +21,11 @@ class CreateWorkoutViewController: UICollectionViewController, UICollectionViewD
   let addExercise: UIButton = {
     let btn = UIButton()
     btn.backgroundColor = UIColor.rgb(red: 126, green: 211, blue: 31)
-    btn.setTitle("Add exercise", for: .normal)
     let flagImage = UIImage(named: "weight")
     btn.setImage(flagImage?.withRenderingMode(.alwaysOriginal), for: .normal)
     btn.addTarget(self, action: #selector(handleAddExercise), for: .touchUpInside)
-    btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10)
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+    btn.alpha = 0.6
     return btn
   }()
   
@@ -48,7 +48,8 @@ class CreateWorkoutViewController: UICollectionViewController, UICollectionViewD
     navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "HelveticaNeue", size: 20) ?? ""]
     
     view.addSubview(addExercise)
-    addExercise.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 70)
+    addExercise.anchor(top: nil, left: nil, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 120, paddingRight: 8, width: 70, height: 70)
+    addExercise.layer.cornerRadius = 5
   }
   
   // MARK:- UICollectionview

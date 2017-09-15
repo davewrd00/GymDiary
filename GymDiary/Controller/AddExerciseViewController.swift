@@ -62,8 +62,11 @@ class AddExerciseViewController: UICollectionViewController, UICollectionViewDel
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     print(indexPath.item)
     
+    let chosenMuscleGroup = muscleGroups[indexPath.item]
+    
     let layout = UICollectionViewFlowLayout()
     let chooseExerciseVC = ChooseExerciseViewController(collectionViewLayout: layout)
+    chooseExerciseVC.exercises = chosenMuscleGroup
     self.navigationController?.pushViewController(chooseExerciseVC, animated: true)
   }
   
