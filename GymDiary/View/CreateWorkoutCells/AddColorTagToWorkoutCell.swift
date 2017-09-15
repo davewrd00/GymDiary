@@ -17,49 +17,61 @@ class AddColorTagToWorkoutCell: UICollectionViewCell {
     return lbl
   }()
   
-  let colorTag: UIView = {
+  lazy var colorTag: UIView = {
     let v = UIView()
     v.backgroundColor = .red
+    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleColorForPlan))
+    v.addGestureRecognizer(gestureRecognizer)
     v.layer.borderWidth = 1
     v.layer.borderColor = UIColor.white.cgColor
     return v
   }()
   
-  let colorTag2: UIView = {
+  lazy var colorTag2: UIView = {
     let v = UIView()
     v.backgroundColor = .orange
+    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleColorForPlan))
+    v.addGestureRecognizer(gestureRecognizer)
     v.layer.borderWidth = 1
     v.layer.borderColor = UIColor.white.cgColor
     return v
   }()
   
-  let colorTag3: UIView = {
+  lazy var colorTag3: UIView = {
     let v = UIView()
     v.backgroundColor = .yellow
+    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleColorForPlan))
+    v.addGestureRecognizer(gestureRecognizer)
     v.layer.borderWidth = 1
     v.layer.borderColor = UIColor.white.cgColor
     return v
   }()
   
-  let colorTag4: UIView = {
+  lazy var colorTag4: UIView = {
     let v = UIView()
     v.backgroundColor = .brown
+    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleColorForPlan))
+    v.addGestureRecognizer(gestureRecognizer)
     v.layer.borderWidth = 1
     v.layer.borderColor = UIColor.white.cgColor
     return v
   }()
   
-  let colorTag5: UIView = {
+  lazy var colorTag5: UIView = {
     let v = UIView()
     v.backgroundColor = .green
+    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleColorForPlan))
+    v.addGestureRecognizer(gestureRecognizer)
     v.layer.borderWidth = 1
     v.layer.borderColor = UIColor.white.cgColor
     return v
   }()
   
-  let colorTag6: UIView = {
+  lazy var colorTag6: UIView = {
     let v = UIView()
     v.backgroundColor = .blue
+    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleColorForPlan))
+    v.addGestureRecognizer(gestureRecognizer)
     v.layer.borderWidth = 1
     v.layer.borderColor = UIColor.white.cgColor
     return v
@@ -114,6 +126,10 @@ class AddColorTagToWorkoutCell: UICollectionViewCell {
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  @objc func handleColorForPlan() {
+    print(123)
   }
   
 }

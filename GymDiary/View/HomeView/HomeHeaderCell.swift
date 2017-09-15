@@ -18,7 +18,6 @@ class HomeHeaderCell: UIView {
   
   let userNameLabel: UILabel = {
     let lbl = UILabel()
-    lbl.text = "Catherine Evans"
     lbl.font = UIFont(name: "HelveticaNeue-Bold", size: 24)
     lbl.textColor = .white
     return lbl

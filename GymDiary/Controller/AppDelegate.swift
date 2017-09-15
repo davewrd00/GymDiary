@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,11 +19,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     
-    window = UIWindow()
-    let homeVC = HomeViewController()
-    let navigationController = UINavigationController(rootViewController: homeVC)
-    window?.rootViewController = navigationController
-    window?.makeKeyAndVisible()
+    FirebaseApp.configure()
+    
+    if Auth.auth().currentUser?.uid == nil {
+      window = UIWindow()
+      window?.rootViewController = WelcomeViewController()
+      window?.makeKeyAndVisible()
+      application.statusBarStyle = .lightContent
+    } else {
+      window = UIWindow()
+      let homeVC = HomeViewController()
+      let navigationController = UINavigationController(rootViewController: homeVC)
+      window?.rootViewController = navigationController
+      application.statusBarStyle = .lightContent
+      window?.makeKeyAndVisible()
+    }
+    
+   
+    
     return true
   }
 

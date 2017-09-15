@@ -7,14 +7,9 @@ target 'GymDiary' do
 
   # Pods for GymDiary
 
-  target 'GymDiaryTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'GymDiaryUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  pod ‘Firebase/Auth’
+  pod ‘Firebase/Database’
+  pod ‘Firebase/Storage’
+  pod ‘SwiftKeychainWrapper’
 
 end

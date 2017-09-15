@@ -45,10 +45,10 @@ class CreateWorkoutViewController: UICollectionViewController, UICollectionViewD
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "tick").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleCreateWorkout))
     
     navigationItem.title = "New workout plan"
-    navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "HelveticaNeue-Bold", size: 20) ?? ""]
+    navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "HelveticaNeue", size: 20) ?? ""]
     
     view.addSubview(addExercise)
-    addExercise.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 80)
+    addExercise.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 70)
   }
   
   // MARK:- UICollectionview
@@ -79,7 +79,13 @@ class CreateWorkoutViewController: UICollectionViewController, UICollectionViewD
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: view.frame.width, height: 120)
+    if indexPath.section == 0 {
+         return CGSize(width: view.frame.width, height: 100)
+    } else if indexPath.section == 1 {
+      return CGSize(width: view.frame.width, height: 100)
+    }
+    return CGSize(width: view.frame.width, height: 240)
+ 
   }
   
   override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
