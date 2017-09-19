@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class StockWorkoutPlansViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+  
+  var workoutPlans = [WorkoutPlans]()
+  
+  var planCell = PlanViews()
   
   let headerId = "headerId"
   
@@ -17,11 +22,15 @@ class StockWorkoutPlansViewController: UICollectionViewController, UICollectionV
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    loadWorkoutPlans()
+    
     navigationController?.navigationBar.barTintColor = UIColor.rgb(red: 69, green: 83, blue: 111)
     
     collectionView?.backgroundColor = UIColor.rgb(red: 97, green: 107, blue: 129)
     collectionView?.register(StockPlanHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
     collectionView?.register(PlanViews.self, forCellWithReuseIdentifier: cellId)
+    
+    
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -34,11 +43,12 @@ class StockWorkoutPlansViewController: UICollectionViewController, UICollectionV
   }
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 4
+    return workoutPlans.count
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PlanViews
+    cell.plans = workoutPlans[indexPath.item]
     return cell
   }
   
@@ -48,6 +58,24 @@ class StockWorkoutPlansViewController: UICollectionViewController, UICollectionV
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
     return 1
+  }
+  
+  private func loadWorkoutPlans() {
+    Database.database().reference().child("workoutPlans").observeSingleEvent(of: .value, with: { (snapshot) in
+      guard let workoutDict = snapshot.value as? [String: Any] else { return }
+      print("lala \(workoutDict)")
+      workoutDict.forEach({ (arg) in
+        let (_, value) = arg
+        guard let dict = value as? [String: Any] else { return }
+        let workouts = WorkoutPlans(dictionary: dict)
+        print(dict)
+        self.workoutPlans.append(workouts)
+        self.collectionView?.reloadData()
+      })
+    }) { (err) in
+      print("Error fetching this list", err)
+      return
+    }
   }
   
 }

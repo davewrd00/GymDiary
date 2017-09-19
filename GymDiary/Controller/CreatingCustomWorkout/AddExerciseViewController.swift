@@ -65,7 +65,7 @@ class AddExerciseViewController: UICollectionViewController, UICollectionViewDel
     let chosenMuscleGroup = muscleGroups[indexPath.item]
     
     let layout = UICollectionViewFlowLayout()
-    let chooseExerciseVC = ChooseExerciseViewController(collectionViewLayout: layout)
+    let chooseExerciseVC = ChooseExerciseViewController()
     chooseExerciseVC.exercises = chosenMuscleGroup
     self.navigationController?.pushViewController(chooseExerciseVC, animated: true)
   }

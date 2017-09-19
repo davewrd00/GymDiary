@@ -1,15 +1,15 @@
 //
-//  ChoseAnExerciseHeader.swift
+//  MenuBarView.swift
 //  GymDiary
 //
-//  Created by David on 14/09/2017.
+//  Created by David on 18/09/2017.
 //  Copyright © 2017 David Ward. All rights reserved.
 //
 
 import UIKit
 
-class ChooseAnExerciseHeader: UICollectionViewCell {
-
+class MenuBarView: UIView {
+  
   let nameLabel: UILabel = {
     let lbl = UILabel()
     lbl.textColor = .white
@@ -21,13 +21,11 @@ class ChooseAnExerciseHeader: UICollectionViewCell {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    backgroundColor = UIColor.rgb(red: 69, green: 83, blue: 111)
-    
     addSubview(nameLabel)
-    
-    nameLabel.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 5, paddingRight: 0, width: 300, height: 0)
+    nameLabel.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 200, height: 0)
     nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+    backgroundColor = .white 
     
   }
   
@@ -35,8 +33,4 @@ class ChooseAnExerciseHeader: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
-  
-  
 }
-
-

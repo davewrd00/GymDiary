@@ -31,7 +31,7 @@ class TabBarController: UITabBarController {
     plansNavController.tabBarItem.image = #imageLiteral(resourceName: "plans")
     
     tabBar.tintColor = .white
-    tabBar.barTintColor = .purple
+    tabBar.barTintColor = UIColor.rgb(red: 97, green: 107, blue: 129)
     
     viewControllers = [homeNavController, plansNavController]
     

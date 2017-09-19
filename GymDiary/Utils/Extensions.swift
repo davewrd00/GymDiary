@@ -16,6 +16,40 @@ extension UIColor {
   
 }
 
+// Changes the search field text to white
+
+extension UISearchBar {
+  
+  var textColor: UIColor? {
+    get {
+      if let textField = self.value(forKey: "searchField") as? UITextField {
+        return textField.textColor
+      } else {
+        return nil
+      }
+    }
+    
+    set (newValue) {
+      if let textField = self.value(forKey: "searchField") as? UITextField {
+        textField.textColor = newValue
+      }
+    }
+  }
+}
+
+extension UIView {
+  func addConstraintsWithFormat(format: String, views: UIView...) {
+    var viewsDictionary = [String: UIView]()
+    for (index, view) in views.enumerated() {
+      let key = "v\(index)"
+      view.translatesAutoresizingMaskIntoConstraints = false
+      viewsDictionary[key] = view
+    }
+    
+    addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
+  }
+}
+
 extension UIView {
   func anchor(top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?,  paddingTop: CGFloat, paddingLeft: CGFloat, paddingBottom: CGFloat, paddingRight: CGFloat, width: CGFloat, height: CGFloat) {
     

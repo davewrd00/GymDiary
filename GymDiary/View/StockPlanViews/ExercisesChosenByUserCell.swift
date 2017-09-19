@@ -10,6 +10,12 @@ import UIKit
 
 class ExercisesChosenByUserCell: UICollectionViewCell {
   
+  var exercise: IndividualExercise? {
+    didSet {
+      self.exerciseName.text = exercise?.name
+    }
+  }
+  
   let cellView: UIView = {
     let v = UIView()
     v.backgroundColor = UIColor.rgb(red: 69, green: 83, blue: 111)
@@ -23,7 +29,7 @@ class ExercisesChosenByUserCell: UICollectionViewCell {
   
   let exerciseName: UILabel = {
     let lbl = UILabel()
-    lbl.text = "Dumbbell Bench Press"
+    //lbl.text = "Dumbbell Bench Press"
     lbl.textColor = .white
     lbl.font = UIFont(name: "HelveticaNeue-Thin", size: 16)
     return lbl

@@ -22,6 +22,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
   }
   
+  lazy var settingsLaucnher: SettingsLauncher = {
+    let launcher = SettingsLauncher()
+    launcher.homeViewController = self
+    return launcher
+  }()
+  
   let topView: HomeHeaderCell = {
     let v = HomeHeaderCell()
     return v
@@ -30,7 +36,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
   let collectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .horizontal
+    layout.minimumLineSpacing = 0
     let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    cv.isPagingEnabled = true
     cv.backgroundColor = .yellow
     return cv
   }()
@@ -66,6 +74,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    tabBarController?.tabBar.isHidden = false
     
     collectionView.register(PreviousWorkoutView.self, forCellWithReuseIdentifier: "cellId")
     collectionView.delegate = self
@@ -106,25 +116,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
   }
   
   @objc func hanleMenuBtnTapped() {
-    print(234)
-    
-    let alertController = UIAlertController(title: "Log Out", message: "Are you sure?", preferredStyle: .actionSheet)
-    alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
-      
-      do {
-        try Auth.auth().signOut()
-        let welcomeVC = WelcomeViewController()
-        let navController = UINavigationController(rootViewController: welcomeVC)
-        _ = KeychainWrapper.standard.removeObject(forKey: "uid")
-        print("ID removed from keychain")
-        self.present(navController, animated: true, completion: nil)
-        
-      } catch let signOutErr {
-        print("Failed to signout of application", signOutErr)
-      }
-    }))
-    alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil ))
-    present(alertController, animated: true, completion: nil)
+    settingsLaucnher.showSettings()
   }
   
   fileprivate func fetchUser() {
@@ -132,6 +124,32 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     DataService.sharedInstance.fetchUserWithUID(uid: uid) { (user) in
       self.user = user
       print("The logged in user is \(user)")
+    }
+  }
+  
+  @objc func handleLogout() {
+        let alertController = UIAlertController(title: "Log Out", message: "Are you sure?", preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
+    
+          do {
+            try Auth.auth().signOut()
+            let welcomeVC = WelcomeViewController()
+            let navController = UINavigationController(rootViewController: welcomeVC)
+            _ = KeychainWrapper.standard.removeObject(forKey: "uid")
+            print("ID removed from keychain")
+            self.present(navController, animated: true, completion: nil)
+    
+          } catch let signOutErr {
+            print("Failed to signout of application", signOutErr)
+          }
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil ))
+        present(alertController, animated: true, completion: nil)
+      }
+  
+  func showSettingsController(setting: Setting) {
+    if setting.name.rawValue == "Profile" {
+      print("hello")
     }
   }
   
